@@ -1,19 +1,41 @@
-const section = document.querySelector("section")
-const playerLivesCount = document.querySelector("span")
-const playerLives= 6;
+let counter = 0;
+let firstSelection = "";
+let secondSelection = "";
 
-playerLivesCount.textContent = playerLives;
+const cards = document.querySelectorAll(".cards .card");
+cards.forEach((card) => {
+  card.addEventListener("click", () => {
+    card.classList.add("clicked");
 
-const getData = () => [{}]
+    if (counter === 0) {
+      firstSelection = card.getAttribute("gameCard");
+      counter++;
+    } else {
+      secondSelection = card.getAttribute("gameCard");
+      counter = 0;
 
-const data = getData(); 
+      if (firstSelection === secondSelection) {
+        const correctCards = document.querySelectorAll(
+          ".card[animal='" + firstSelection + "']"
+        );
 
+        correctCards[0].classList.add("checked");
+        correctCards[0].classList.remove("clicked");
+        correctCards[1].classList.add("checked");
+        correctCards[1].classList.remove("clicked");
+      } else {
+        const incorrectCards = document.querySelectorAll(".card.clicked");
 
-const randomize = () => {
+        incorrectCards[0].classList.add("shake");
+        incorrectCards[1].classList.add("shake");
 
-  const cardata = getData();
-  cardata.sort(() => Math.random()- 0,5);
-  console.log(cardata);
-};
-
-randomize();
+        setTimeout(() => {
+          incorrectCards[0].classList.remove("shake");
+          incorrectCards[0].classList.remove("clicked");
+          incorrectCards[1].classList.remove("shake");
+          incorrectCards[1].classList.remove("clicked");
+        }, 800);
+      }
+    }
+  });
+});
