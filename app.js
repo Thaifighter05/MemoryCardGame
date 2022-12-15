@@ -1,41 +1,19 @@
-let counter = 0;
-let firstSelection = "";
-let secondSelection = "";
+const section = document.querySelector("section")
+const playerLivesCount = document.querySelector("span")
+const playerLives= 6;
 
-const cards = document.querySelectorAll(".cards .card");
-cards.forEach((card) => {
-  card.addEventListener("click", () => {
-    card.classList.add("clicked");
+playerLivesCount.textContent = playerLives;
 
-    if (counter === 0) {
-      firstSelection = card.getAttribute("animal");
-      counter++;
-    } else {
-      secondSelection = card.getAttribute("animal");
-      counter = 0;
+const getData = () => [{}]
 
-      if (firstSelection === secondSelection) {
-        const correctCards = document.querySelectorAll(
-          ".card[animal='" + firstSelection + "']"
-        );
+const data = getData(); 
 
-        correctCards[0].classList.add("checked");
-        correctCards[0].classList.remove("clicked");
-        correctCards[1].classList.add("checked");
-        correctCards[1].classList.remove("clicked");
-      } else {
-        const incorrectCards = document.querySelectorAll(".card.clicked");
 
-        incorrectCards[0].classList.add("shake");
-        incorrectCards[1].classList.add("shake");
+const randomize = () => {
 
-        setTimeout(() => {
-          incorrectCards[0].classList.remove("shake");
-          incorrectCards[0].classList.remove("clicked");
-          incorrectCards[1].classList.remove("shake");
-          incorrectCards[1].classList.remove("clicked");
-        }, 800);
-      }
-    }
-  });
-});
+  const cardata = getData();
+  cardata.sort(() => Math.random()- 0,5);
+  console.log(cardata);
+};
+
+randomize();
