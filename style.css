@@ -12,9 +12,9 @@
 
 .heading {
   text-align: center;
-  font-family: "Poppins", sans-serif;
-  font-size: 2rem;
-  font-weight: 500;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  font-weight: 200;
 }
 
 .cards {
@@ -34,7 +34,7 @@
   transition: 0.3s all ease;
 }
 
-.card:hover {
+.card-hover {
   transform: scale(1.03);
 }
 
@@ -46,7 +46,7 @@
 }
 
 .card.clicked {
-  background-color: rgb(0, 251, 255);
+  background-color: rgb(255, 132, 0);
 }
 
 .card.checked {
@@ -96,7 +96,9 @@
   }
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
+    
   }
 }
 
+  
   
