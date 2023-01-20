@@ -17,6 +17,14 @@
   font-weight: 200;
 }
 
+body {
+  background-image: url(./Images/Background.jpg);
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed;
+  color: #c300ff;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
