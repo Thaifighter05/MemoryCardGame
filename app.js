@@ -29,7 +29,7 @@ function generateGameBoard() {
     },
     {
       name: "Kratos",
-      url: "./Images/Kratos.jpg",
+      url: "./Images/Kratos.jpg", 
       placedCount: 0
     },
     {
